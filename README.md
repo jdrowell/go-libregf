@@ -1,5 +1,5 @@
 # go-libregf
-Go bindings for the libregf C library
+Go bindings for the libregf C library, which exposes an API for handling Windows Registry files
 
 # What is Working
 
@@ -10,8 +10,9 @@ Go bindings for the libregf C library
 
 # How to Use
 
-```
+```go
 inport (
+  "fmt"
   "github.com/jdrowell/go-libregf"
 )
 
@@ -23,10 +24,10 @@ func report(filepath string, values []string) error {
   for _, path := range values {
     v, err := file.Value(path)
     if err != nil { return err }
-      fmt.Printf("%s: %s\n", path, v)
-    }
+    fmt.Printf("%s: %s\n", path, v)
+  }
 
-   return nil
+  return nil
 }
 
 func main() {
